@@ -22,7 +22,7 @@ class Camera
             p -> Camera position
             d -> Camera direction
             u -> Camera up vector
-            angle -> Field of view of the camer
+            angle -> Field of view of the camera
         Return:
             Create an object "Camera"
         */

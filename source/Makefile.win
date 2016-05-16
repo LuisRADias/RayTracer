@@ -1,0 +1,55 @@
+# Project: Ray Tracer
+# Makefile created by Dev-C++ 5.6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o vector.o sphere.o object.o plane.o light.o ray.o scene.o camera.o matrix.o
+LINKOBJ  = main.o vector.o sphere.o object.o plane.o light.o ray.o scene.o camera.o matrix.o
+LIBS     = -L"D:/Downloads/Dev-Cpp/MinGW64/lib" -L"D:/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"D:/Downloads/Dev-Cpp/MinGW64/include" -I"D:/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"D:/Downloads/Dev-Cpp/MinGW64/include" -I"D:/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = RayTracer.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+vector.o: vector.cpp
+	$(CPP) -c vector.cpp -o vector.o $(CXXFLAGS)
+
+sphere.o: sphere.cpp
+	$(CPP) -c sphere.cpp -o sphere.o $(CXXFLAGS)
+
+object.o: object.cpp
+	$(CPP) -c object.cpp -o object.o $(CXXFLAGS)
+
+plane.o: plane.cpp
+	$(CPP) -c plane.cpp -o plane.o $(CXXFLAGS)
+
+light.o: light.cpp
+	$(CPP) -c light.cpp -o light.o $(CXXFLAGS)
+
+ray.o: ray.cpp
+	$(CPP) -c ray.cpp -o ray.o $(CXXFLAGS)
+
+scene.o: scene.cpp
+	$(CPP) -c scene.cpp -o scene.o $(CXXFLAGS)
+
+camera.o: camera.cpp
+	$(CPP) -c camera.cpp -o camera.o $(CXXFLAGS)
+
+matrix.o: matrix.cpp
+	$(CPP) -c matrix.cpp -o matrix.o $(CXXFLAGS)
